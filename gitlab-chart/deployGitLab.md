@@ -1,12 +1,13 @@
+```
 helm repo add gitlab-jh https://charts.gitlab.cn
 helm repo update
-helm --install gitlab gitlab-jh/gitlab \
+helm install gitlab gitlab-jh/gitlab \
 --version 6.9.3 \
 --timeout 600s \
---set global.hosts.domain=home.bfylu.top \
+--set global.hosts.domain=bfylu.top \
 --set global.hosts.externalIP=10.244.0.10 \
 --set certmanager-issuer.email=18279544224@163.com \
---set global.gitaly.authToken.secret=gitlab-gitaly-secret\
+--set global.gitaly.authToken.secret=gitlab-gitaly-secret \
 --set global.praefect.authToken.secret=gitlab-praefect-secret \
 --set global.minio.credentials.secret=gitlab-minio-secret \
 --set postgresql.install=false \
@@ -16,12 +17,12 @@ helm --install gitlab gitlab-jh/gitlab \
 --set global.psql.port=5432 \
 --set global.psql.database=gitlabhq_production \
 --set global.psql.username=gitlab \
---set redis.install:false \
---set global.redis.host:10.110.249.100 \
---set global.redis.password.enabled:false \
---set global.redis.port:6379 \
+--set redis.install=false \
+--set global.redis.host=10.110.249.100 \
+--set global.redis.password.enabled=false \
+--set global.redis.port=6379 \
 -n gitlab-jh
-
+```
 
 
 
