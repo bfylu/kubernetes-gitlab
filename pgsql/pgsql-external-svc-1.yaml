@@ -1,0 +1,15 @@
+apiVersion: discovery.k8s.io/v1
+kind: EndpointSlice
+metadata:
+  name: pgsql-external-svc-1
+  labels:
+    kubernetes.io/service-name: pgsql-external-svc
+addressType: IPv4
+endpoints:
+  - addresses:
+      - "192.168.2.194"
+ports:
+  - name: ''
+    appProtocol: http
+    protocol: TCP
+    port: 5432
